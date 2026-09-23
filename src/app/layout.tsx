@@ -1,6 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Sora, Inter } from "next/font/google";
 import "./globals.css";
+import Analytics from "@/components/Analytics";
+import JsonLd from "@/components/JsonLd";
+import { site } from "@/lib/site";
 
 const heading = Sora({
   variable: "--font-heading",
@@ -14,44 +17,79 @@ const body = Inter({
   weight: ["400", "500", "600", "700"],
 });
 
-const siteUrl = "https://www.sfrpanama.com";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(site.url),
   title: {
-    default: "SFR Panamá | Soluciones TI que tu empresa merece",
+    default: site.title,
     template: "%s | SFR Panamá",
   },
-  description:
-    "Consultoría, soporte técnico outsourcing, cloud AWS, inteligencia artificial, desarrollo web y ciberseguridad para pequeñas y medianas empresas en Panamá. Más de 15 años de experiencia.",
+  description: site.description,
+  applicationName: site.name,
   keywords: [
     "soporte tecnico Panama",
+    "soporte tecnico empresas Panama",
     "outsourcing TI Panama",
+    "empresa de informatica Panama",
+    "consultoria TI Panama",
     "cloud AWS Panama",
     "inteligencia artificial Panama",
+    "chatbot WhatsApp Panama",
     "desarrollo web Panama",
+    "diseño de paginas web Panama",
     "ciberseguridad Panama",
+    "soporte de redes Panama",
     "System FR Panama",
   ],
+  authors: [{ name: site.legalName, url: site.url }],
+  creator: site.legalName,
+  publisher: site.legalName,
+  category: "technology",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "SFR Panamá | Soluciones TI que tu empresa merece",
-    description:
-      "Consultoría, soporte técnico outsourcing, cloud AWS, inteligencia artificial, desarrollo web y ciberseguridad para pymes en Panamá.",
-    url: siteUrl,
-    siteName: "SFR Panamá",
+    title: site.title,
+    description: site.description,
+    url: "/",
+    siteName: site.name,
     locale: "es_PA",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: site.title,
+    description: site.description,
+  },
+  formatDetection: {
+    telephone: false,
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#26292b",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="es"
+      lang="es-PA"
       className={`${heading.variable} ${body.variable} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col bg-white text-brand-ink">
         {children}
+        <JsonLd />
+        <Analytics />
       </body>
     </html>
   );

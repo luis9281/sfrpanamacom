@@ -12,36 +12,36 @@ import {
   Laptop,
 } from "lucide-react";
 
-const services = [
+export const services = [
   {
     icon: ClipboardList,
     title: "Consultoría de Sistemas",
     description:
-      "Análisis estratégico de tu infraestructura TI para tomar mejores decisiones tecnológicas.",
+      "Análisis estratégico de tu infraestructura TI y un plan tecnológico claro para tomar mejores decisiones y crecer.",
   },
   {
     icon: Code2,
     title: "Desarrollo de Aplicaciones",
     description:
-      "Aplicaciones a la medida de cada proyecto, diseñadas según las necesidades de tu negocio.",
+      "Aplicaciones web y móviles a la medida, diseñadas según los procesos y necesidades de tu negocio.",
   },
   {
     icon: ShieldCheck,
     title: "Seguridad Informática",
     description:
-      "Antivirus, firewalls y protección integral de la información de tu empresa.",
+      "Antivirus, firewalls, respaldos y protección integral de la información de tu empresa frente a ciberataques.",
   },
   {
     icon: Cloud,
     title: "Servicios Cloud AWS",
     description:
-      "EC2, S3 y servidores dedicados con alta disponibilidad para tu operación.",
+      "Migración y administración en Amazon Web Services: EC2, S3 y servidores con alta disponibilidad, con ahorros de hasta 60%.",
   },
   {
     icon: LayoutTemplate,
     title: "Diseño y Desarrollo Web",
     description:
-      "Sitios responsivos, ecommerce, SEO y manejo de redes sociales.",
+      "Páginas web responsivas, tiendas en línea (ecommerce), posicionamiento SEO y manejo de redes sociales.",
   },
   {
     icon: Megaphone,
@@ -90,11 +90,12 @@ export default function Services() {
             Lo que hacemos
           </p>
           <h2 className="font-heading mt-3 text-3xl font-bold text-brand-ink sm:text-4xl">
-            Servicios TI para tu empresa
+            Servicios de TI y soporte técnico en Panamá
           </h2>
           <p className="mt-4 text-base leading-relaxed text-brand-charcoal-light/80">
-            Técnicos especializados en mantenimiento, reparaciones,
-            servidores, seguridad, Windows, Linux y cableado estructurado.
+            Outsourcing de TI con técnicos especializados en mantenimiento,
+            reparaciones, servidores, seguridad, Windows, Linux y cableado
+            estructurado para empresas de todo Panamá.
           </p>
         </div>
 

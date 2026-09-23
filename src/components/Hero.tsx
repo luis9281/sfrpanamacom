@@ -24,15 +24,15 @@ export default function Hero() {
           </span>
 
           <h1 className="font-heading mt-6 text-4xl font-bold leading-tight text-balance text-white sm:text-5xl lg:text-6xl">
-            Soluciones TI que tu{" "}
+            Soluciones TI en Panamá que tu{" "}
             <span className="text-brand-green">empresa merece</span>
           </h1>
 
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
-            Consultoría, soporte técnico outsourcing, cloud AWS, inteligencia
-            artificial, desarrollo web y ciberseguridad para pequeñas y
-            medianas empresas. No vendemos servicios, entregamos soluciones
-            reales.
+            Soporte técnico outsourcing, consultoría TI, cloud AWS,
+            inteligencia artificial, desarrollo web y ciberseguridad para
+            pequeñas y medianas empresas en Panamá. No vendemos servicios,
+            entregamos soluciones reales.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">

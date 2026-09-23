@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { whatsappLink } from "@/lib/site";
 
-const solutions = [
+export const solutions = [
   {
     icon: Bot,
     title: "Agentes y Chatbots con IA",
@@ -60,7 +60,7 @@ export default function AISolutions() {
             Nuevas soluciones
           </span>
           <h2 className="font-heading mt-4 text-3xl font-bold text-white sm:text-4xl">
-            IA que trabaja por tu empresa, hoy
+            Inteligencia artificial para empresas en Panamá
           </h2>
           <p className="mt-4 text-base leading-relaxed text-white/70">
             Empresas que implementan nuestras soluciones de IA logran hasta un{" "}
