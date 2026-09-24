@@ -1,11 +1,7 @@
-import { ArrowRight, MessageCircle, ShieldCheck, Cloud, Cpu } from "lucide-react";
+import { ArrowRight, MessageCircle } from "lucide-react";
 import { whatsappLink } from "@/lib/site";
-
-const floatingCards = [
-  { icon: Cloud, label: "Cloud AWS", position: "left-[-1.5rem] top-10 lg:left-[-2.5rem]" },
-  { icon: ShieldCheck, label: "Ciberseguridad", position: "right-[-1rem] top-1/2 -translate-y-1/2 lg:right-[-2.5rem]" },
-  { icon: Cpu, label: "Inteligencia Artificial", position: "left-6 bottom-[-1.5rem] lg:left-10" },
-];
+import HeroCubes from "@/components/HeroCubes";
+import HeroOrbit from "@/components/HeroOrbit";
 
 export default function Hero() {
   return (
@@ -14,6 +10,7 @@ export default function Hero() {
       className="relative overflow-hidden bg-brand-charcoal"
     >
       <div className="bg-grid absolute inset-0 opacity-70" />
+      <HeroCubes />
       <div className="pointer-events-none absolute -top-24 right-[-10%] h-96 w-96 rounded-full bg-brand-green/20 blur-3xl" />
       <div className="pointer-events-none absolute bottom-[-6rem] left-[-6rem] h-72 w-72 rounded-full bg-brand-green/10 blur-3xl" />
 
@@ -60,29 +57,7 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="relative mx-auto hidden aspect-square w-full max-w-md items-center justify-center lg:flex">
-          <div className="relative flex h-72 w-72 items-center justify-center rounded-full border border-brand-green/30 bg-white/5">
-            <div className="absolute inset-6 rounded-full border border-brand-green/20" />
-            <div className="absolute inset-14 rounded-full border border-brand-green/10" />
-            <span className="font-heading text-5xl font-extrabold text-white">
-              SFR
-            </span>
-
-            {floatingCards.map(({ icon: Icon, label, position }) => (
-              <div
-                key={label}
-                className={`absolute flex items-center gap-2 rounded-2xl bg-white px-4 py-3 shadow-xl ${position}`}
-              >
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-green-light text-brand-green-dark">
-                  <Icon size={16} />
-                </span>
-                <span className="text-xs font-bold text-brand-charcoal">
-                  {label}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
+        <HeroOrbit />
       </div>
     </section>
   );

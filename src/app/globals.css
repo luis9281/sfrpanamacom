@@ -64,3 +64,70 @@ body {
 .animate-fade-up {
   animation: fade-up 0.7s ease both;
 }
+
+/* Hero: esfera de alambre y cubos 3D del fondo */
+@keyframes sphere-spin {
+  from {
+    transform: rotateX(-18deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(-18deg) rotateY(360deg);
+  }
+}
+
+.hero-sphere {
+  animation: sphere-spin 22s linear infinite;
+}
+
+@keyframes cube-spin {
+  from {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateX(360deg) rotateY(720deg) rotateZ(360deg);
+  }
+}
+
+@keyframes cube-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -24px;
+  }
+}
+
+.cube-3d {
+  width: var(--size);
+  height: var(--size);
+  transform-style: preserve-3d;
+  animation: cube-spin var(--spin, 40s) linear infinite;
+}
+
+.cube-3d > span {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(124, 194, 66, 0.45);
+  background: rgba(124, 194, 66, 0.04);
+}
+
+.cube-3d > span:nth-child(1) { transform: translateZ(calc(var(--size) / 2)); }
+.cube-3d > span:nth-child(2) { transform: rotateY(180deg) translateZ(calc(var(--size) / 2)); }
+.cube-3d > span:nth-child(3) { transform: rotateY(90deg) translateZ(calc(var(--size) / 2)); }
+.cube-3d > span:nth-child(4) { transform: rotateY(-90deg) translateZ(calc(var(--size) / 2)); }
+.cube-3d > span:nth-child(5) { transform: rotateX(90deg) translateZ(calc(var(--size) / 2)); }
+.cube-3d > span:nth-child(6) { transform: rotateX(-90deg) translateZ(calc(var(--size) / 2)); }
+
+.cube-float {
+  perspective: 800px;
+  animation: cube-float var(--float, 9s) ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-sphere,
+  .cube-3d,
+  .cube-float {
+    animation: none;
+  }
+}
