@@ -8,13 +8,11 @@ import { site } from "@/lib/site";
 const heading = Sora({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
 });
 
 const body = Inter({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -84,8 +82,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="es-PA"
+      suppressHydrationWarning
       className={`${heading.variable} ${body.variable} h-full antialiased scroll-smooth`}
     >
+      <head>
+        {/* Marca que hay JS antes de pintar, para ocultar lo que entra con scroll */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('js')",
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-white text-brand-ink">
         {children}
         <JsonLd />

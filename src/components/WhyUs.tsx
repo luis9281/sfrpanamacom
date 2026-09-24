@@ -34,10 +34,15 @@ const values = [
 
 export default function WhyUs() {
   return (
-    <section id="nosotros" className="bg-brand-green-light/40 py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+    <section id="nosotros" className="relative overflow-hidden bg-brand-green-light/40 py-20 lg:py-28">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        <div data-parallax="0.2" className="absolute -right-20 top-0 h-96 w-96 rounded-full bg-brand-green/15 blur-3xl" />
+        <div data-parallax="-0.15" className="absolute -left-16 bottom-0 h-72 w-72 rounded-full bg-white/70 blur-3xl" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
         <div className="grid gap-14 lg:grid-cols-2 lg:items-center">
-          <div>
+          <div data-reveal="left">
             <p className="text-sm font-bold uppercase tracking-widest text-brand-green-dark">
               Nosotros
             </p>
@@ -65,8 +70,18 @@ export default function WhyUs() {
             </div>
           </div>
 
-          <div className="relative">
-            <div className="overflow-hidden rounded-3xl border border-black/5 bg-white p-10 shadow-xl">
+          <div data-reveal="right" className="relative">
+            <div
+              aria-hidden="true"
+              className="animate-spin-slow pointer-events-none absolute left-1/2 top-1/2 h-[125%] w-[125%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-brand-green/40"
+            />
+            <div
+              aria-hidden="true"
+              className="animate-spin-slower pointer-events-none absolute left-1/2 top-1/2 h-[105%] w-[105%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-brand-green/20"
+            >
+              <span className="absolute -top-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rounded-full bg-brand-green shadow-[0_0_12px_rgba(124,194,66,0.8)]" />
+            </div>
+            <div className="relative overflow-hidden rounded-3xl border border-black/5 bg-white p-10 shadow-xl">
               <Image
                 src="/images/logo-full.jpg"
                 alt="System FR Panamá"
@@ -78,7 +93,10 @@ export default function WhyUs() {
           </div>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div
+          data-reveal-stagger="up"
+          className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
+        >
           {reasons.map((reason) => (
             <div
               key={reason.title}

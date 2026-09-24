@@ -131,3 +131,93 @@ body {
     animation: none;
   }
 }
+
+/* Entradas al hacer scroll (solo con JS activo; ver ScrollEffects) */
+@keyframes reveal-up {
+  from { opacity: 0; transform: translate3d(0, 48px, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes reveal-left {
+  from { opacity: 0; transform: translate3d(-72px, 0, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes reveal-right {
+  from { opacity: 0; transform: translate3d(72px, 0, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes reveal-zoom {
+  from { opacity: 0; transform: scale(0.9) translate3d(0, 24px, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+html.js [data-reveal]:not(.is-visible),
+html.js [data-reveal-stagger] > :not(.is-visible) {
+  opacity: 0;
+}
+
+[data-reveal].is-visible {
+  animation: reveal-up 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms) both;
+}
+
+[data-reveal="left"].is-visible { animation-name: reveal-left; }
+[data-reveal="right"].is-visible { animation-name: reveal-right; }
+[data-reveal="zoom"].is-visible { animation-name: reveal-zoom; }
+
+/* Franja de servicios desplazándose */
+@keyframes marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+.marquee-track {
+  animation: marquee 40s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Fondos animados */
+@keyframes grid-drift {
+  from { background-position: 0 0; }
+  to { background-position: 44px 44px; }
+}
+
+.animate-grid-drift {
+  animation: grid-drift 6s linear infinite;
+}
+
+@keyframes spin-slow {
+  to { rotate: 360deg; }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 60s linear infinite;
+}
+
+.animate-spin-slower {
+  animation: spin-slow 90s linear infinite reverse;
+}
+
+.bg-dots {
+  background-image: radial-gradient(rgba(90, 156, 44, 0.18) 1.2px, transparent 1.2px);
+  background-size: 26px 26px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js [data-reveal]:not(.is-visible),
+  html.js [data-reveal-stagger] > :not(.is-visible) {
+    opacity: 1;
+  }
+
+  [data-reveal].is-visible,
+  .marquee-track,
+  .animate-grid-drift,
+  .animate-spin-slow,
+  .animate-spin-slower {
+    animation: none;
+  }
+}

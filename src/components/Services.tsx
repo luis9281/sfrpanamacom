@@ -10,7 +10,9 @@ import {
   Network,
   Wrench,
   Laptop,
+  ArrowRight,
 } from "lucide-react";
+import { webDesignPath } from "@/lib/site";
 
 export const services = [
   {
@@ -42,6 +44,8 @@ export const services = [
     title: "Diseño y Desarrollo Web",
     description:
       "Páginas web responsivas, tiendas en línea (ecommerce), posicionamiento SEO y manejo de redes sociales.",
+    href: webDesignPath,
+    cta: "Ver portafolio",
   },
   {
     icon: Megaphone,
@@ -83,9 +87,15 @@ export const services = [
 
 export default function Services() {
   return (
-    <section id="servicios" className="bg-white py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
+    <section id="servicios" className="relative overflow-hidden bg-white py-20 lg:py-28">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        <div className="bg-dots absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
+        <div data-parallax="0.25" className="absolute -left-32 top-24 h-96 w-96 rounded-full bg-brand-green/15 blur-3xl" />
+        <div data-parallax="-0.2" className="absolute -right-24 bottom-10 h-80 w-80 rounded-full bg-brand-green/10 blur-3xl" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
+        <div data-reveal="up" className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-bold uppercase tracking-widest text-brand-green-dark">
             Lo que hacemos
           </p>
@@ -99,7 +109,10 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div
+          data-reveal-stagger="up"
+          className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        >
           {services.map((service) => (
             <div
               key={service.title}
@@ -114,6 +127,15 @@ export default function Services() {
               <p className="mt-2 text-sm leading-relaxed text-brand-charcoal-light/80">
                 {service.description}
               </p>
+              {"href" in service && (
+                <a
+                  href={service.href}
+                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-brand-green-dark hover:gap-2.5 transition-all"
+                >
+                  {service.cta}
+                  <ArrowRight size={16} />
+                </a>
+              )}
             </div>
           ))}
         </div>

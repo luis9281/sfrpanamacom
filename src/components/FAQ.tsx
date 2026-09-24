@@ -3,9 +3,14 @@ import { faqs } from "@/lib/faqs";
 
 export default function FAQ() {
   return (
-    <section id="preguntas" className="bg-white py-20 lg:py-28">
-      <div className="mx-auto max-w-3xl px-5 lg:px-8">
-        <div className="text-center">
+    <section id="preguntas" className="relative overflow-hidden bg-white py-20 lg:py-28">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        <div className="bg-dots absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent)]" />
+        <div data-parallax="0.3" className="absolute -left-24 top-1/3 h-80 w-80 rounded-full bg-brand-green/10 blur-3xl" />
+      </div>
+
+      <div className="relative mx-auto max-w-3xl px-5 lg:px-8">
+        <div data-reveal="up" className="text-center">
           <p className="text-sm font-bold uppercase tracking-widest text-brand-green-dark">
             Preguntas frecuentes
           </p>
@@ -14,7 +19,7 @@ export default function FAQ() {
           </h2>
         </div>
 
-        <div className="mt-12 space-y-4">
+        <div data-reveal-stagger="up" className="mt-12 space-y-4">
           {faqs.map((faq) => (
             <details
               key={faq.question}

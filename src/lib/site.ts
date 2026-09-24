@@ -17,11 +17,14 @@ export const site = {
 export const whatsappLink = (message: string) =>
   `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(message)}`;
 
+export const webDesignPath = "/diseno-paginas-web";
+
 export const navLinks = [
-  { label: "Inicio", href: "#inicio" },
-  { label: "Servicios", href: "#servicios" },
-  { label: "Soluciones IA", href: "#ia" },
-  { label: "Nosotros", href: "#nosotros" },
-  { label: "Preguntas", href: "#preguntas" },
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/#servicios" },
+  { label: "Diseño Web", href: webDesignPath },
+  { label: "Soluciones IA", href: "/#ia" },
+  { label: "Nosotros", href: "/#nosotros" },
+  { label: "Preguntas", href: "/#preguntas" },
   { label: "Contacto", href: "#contacto" },
 ];

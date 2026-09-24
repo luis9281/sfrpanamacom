@@ -4,8 +4,9 @@ import { site, whatsappLink } from "@/lib/site";
 export default function CTA() {
   return (
     <section id="contacto" className="relative overflow-hidden bg-brand-green">
-      <div className="bg-grid absolute inset-0 opacity-20" />
-      <div className="relative mx-auto max-w-5xl px-5 py-16 text-center lg:px-8 lg:py-20">
+      <div aria-hidden="true" className="bg-grid animate-grid-drift absolute inset-0 opacity-25" />
+      <div aria-hidden="true" data-parallax="0.3" className="pointer-events-none absolute -top-20 left-1/4 h-72 w-72 rounded-full bg-white/30 blur-3xl" />
+      <div data-reveal="zoom" className="relative mx-auto max-w-5xl px-5 py-16 text-center lg:px-8 lg:py-20">
         <h2 className="font-heading text-3xl font-bold text-brand-ink sm:text-4xl">
           ¿Listo para una operación TI sin interrupciones?
         </h2>

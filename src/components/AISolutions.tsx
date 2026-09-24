@@ -7,6 +7,7 @@ import {
   ShieldAlert,
   MessageCircle,
 } from "lucide-react";
+import type { CSSProperties } from "react";
 import { whatsappLink } from "@/lib/site";
 
 export const solutions = [
@@ -52,10 +53,31 @@ export default function AISolutions() {
   return (
     <section id="ia" className="relative overflow-hidden bg-brand-charcoal py-20 lg:py-28">
       <div className="bg-grid absolute inset-0 opacity-40" />
-      <div className="pointer-events-none absolute right-[-8rem] top-1/3 h-80 w-80 rounded-full bg-brand-green/15 blur-3xl" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        <div data-parallax="0.3" className="absolute right-[-8rem] top-1/3 h-80 w-80 rounded-full bg-brand-green/15 blur-3xl" />
+        <div data-parallax="-0.25" className="absolute left-[-6rem] top-10 h-72 w-72 rounded-full bg-brand-green/10 blur-3xl" />
+        <div data-parallax="-0.35" className="absolute right-[8%] top-16 hidden opacity-30 lg:block">
+          <div className="cube-float" style={{ "--float": "9s" } as CSSProperties}>
+            <div className="cube-3d relative" style={{ "--size": "90px", "--spin": "36s" } as CSSProperties}>
+              {Array.from({ length: 6 }, (_, i) => (
+                <span key={i} />
+              ))}
+            </div>
+          </div>
+        </div>
+        <div data-parallax="0.4" className="absolute bottom-24 left-[6%] hidden opacity-25 lg:block">
+          <div className="cube-float" style={{ "--float": "11s" } as CSSProperties}>
+            <div className="cube-3d relative" style={{ "--size": "56px", "--spin": "28s" } as CSSProperties}>
+              {Array.from({ length: 6 }, (_, i) => (
+                <span key={i} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
+        <div data-reveal="up" className="mx-auto max-w-2xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-brand-green/40 bg-brand-green/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-brand-green">
             Nuevas soluciones
           </span>
@@ -71,7 +93,10 @@ export default function AISolutions() {
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div
+          data-reveal-stagger="zoom"
+          className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        >
           {solutions.map((solution) => (
             <div
               key={solution.title}
@@ -90,7 +115,7 @@ export default function AISolutions() {
           ))}
         </div>
 
-        <div className="mt-14 flex justify-center">
+        <div data-reveal="up" className="mt-14 flex justify-center">
           <a
             href={whatsappLink("Hola, quiero conocer más sobre las soluciones de IA para mi empresa.")}
             target="_blank"

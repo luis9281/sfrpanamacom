@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { navLinks, site, whatsappLink } from "@/lib/site";
@@ -8,6 +10,8 @@ import { navLinks, site, whatsappLink } from "@/lib/site";
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const isActive = (href: string) => href === pathname;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -25,7 +29,7 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 lg:px-8">
-        <a href="#inicio" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2">
           <Image
             src="/images/logo.png"
             alt={site.legalName}
@@ -34,17 +38,20 @@ export default function Header() {
             className="h-12 w-auto"
             priority
           />
-        </a>
+        </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-6 lg:flex xl:gap-8">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-semibold text-brand-charcoal transition-colors hover:text-brand-green-dark"
+              aria-current={isActive(link.href) ? "page" : undefined}
+              className={`text-sm font-semibold transition-colors hover:text-brand-green-dark ${
+                isActive(link.href) ? "text-brand-green-dark" : "text-brand-charcoal"
+              }`}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -74,14 +81,14 @@ export default function Header() {
         <div className="border-t border-black/5 bg-white px-5 pb-6 pt-2 lg:hidden">
           <nav className="flex flex-col gap-1">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
                 className="rounded-lg px-3 py-3 text-base font-semibold text-brand-charcoal hover:bg-brand-green-light"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
           <a
