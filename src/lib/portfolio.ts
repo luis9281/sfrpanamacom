@@ -52,6 +52,16 @@ export const portfolio = [
     height: 1800,
   },
   {
+    slug: "elevadorescling",
+    name: "Cling Company",
+    url: "https://elevadorescling.com",
+    domain: "elevadorescling.com",
+    industry: "Mantenimiento de elevadores",
+    description: "Mantenimiento preventivo y reparación de elevadores para edificios PH, con planes mensuales y soporte 24/7.",
+    accent: "#b8924f",
+    height: 1800,
+  },
+  {
     slug: "accabogados",
     name: "ACC Abogados",
     url: "https://accabogados.com.pa",

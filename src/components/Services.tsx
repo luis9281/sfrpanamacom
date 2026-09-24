@@ -12,7 +12,7 @@ import {
   Laptop,
   ArrowRight,
 } from "lucide-react";
-import { webDesignPath } from "@/lib/site";
+import { remoteSupportPath, webDesignPath } from "@/lib/site";
 
 export const services = [
   {
@@ -81,7 +81,9 @@ export const services = [
     icon: Laptop,
     title: "Soporte a Software",
     description:
-      "Optimización de sistemas operativos, reinstalación de Windows, antivirus y resolución de errores.",
+      "Optimización de sistemas operativos, reinstalación de Windows, antivirus y resolución de errores, también de forma remota.",
+    href: remoteSupportPath,
+    cta: "Soporte remoto",
   },
 ];
 

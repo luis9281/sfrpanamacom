@@ -1,7 +1,15 @@
 import { ChevronDown } from "lucide-react";
-import { faqs } from "@/lib/faqs";
+import { faqs as defaultFaqs } from "@/lib/faqs";
 
-export default function FAQ() {
+type FAQProps = {
+  items?: { question: string; answer: string }[];
+  title?: string;
+};
+
+export default function FAQ({
+  items = defaultFaqs,
+  title = "Todo sobre nuestros servicios TI en Panamá",
+}: FAQProps) {
   return (
     <section id="preguntas" className="relative overflow-hidden bg-white py-20 lg:py-28">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
@@ -15,12 +23,12 @@ export default function FAQ() {
             Preguntas frecuentes
           </p>
           <h2 className="font-heading mt-3 text-3xl font-bold text-brand-ink sm:text-4xl">
-            Todo sobre nuestros servicios TI en Panamá
+            {title}
           </h2>
         </div>
 
         <div data-reveal-stagger="up" className="mt-12 space-y-4">
-          {faqs.map((faq) => (
+          {items.map((faq) => (
             <details
               key={faq.question}
               className="group rounded-2xl border border-black/5 bg-white p-6 shadow-sm open:border-brand-green/30"

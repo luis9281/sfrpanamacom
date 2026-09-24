@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { navLinks, site, webDesignPath } from "@/lib/site";
+import { navLinks, remoteSupportPath, site, webDesignPath } from "@/lib/site";
 
 const serviceLinks = [
   { label: "Consultoría de Sistemas", href: "/#servicios" },
   { label: "Servicios Cloud AWS", href: "/#servicios" },
   { label: "Diseño de Páginas Web", href: webDesignPath },
+  { label: "Soporte Técnico Remoto", href: remoteSupportPath },
   { label: "Seguridad Informática", href: "/#servicios" },
   { label: "Soporte a Redes y Hardware", href: "/#servicios" },
   { label: "Soluciones con Inteligencia Artificial", href: "/#ia" },

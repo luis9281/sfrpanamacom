@@ -18,11 +18,24 @@ export const whatsappLink = (message: string) =>
   `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(message)}`;
 
 export const webDesignPath = "/diseno-paginas-web";
+export const remoteSupportPath = "/soporte-remoto-panama";
 
-export const navLinks = [
+type NavLink = {
+  label: string;
+  href: string;
+  children?: { label: string; href: string }[];
+};
+
+export const navLinks: NavLink[] = [
   { label: "Inicio", href: "/" },
-  { label: "Servicios", href: "/#servicios" },
-  { label: "Diseño Web", href: webDesignPath },
+  {
+    label: "Servicios",
+    href: "/#servicios",
+    children: [
+      { label: "Diseño Web", href: webDesignPath },
+      { label: "Soporte Técnico", href: remoteSupportPath },
+    ],
+  },
   { label: "Soluciones IA", href: "/#ia" },
   { label: "Nosotros", href: "/#nosotros" },
   { label: "Preguntas", href: "/#preguntas" },

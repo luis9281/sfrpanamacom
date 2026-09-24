@@ -271,7 +271,8 @@ export default function WebDesignPage() {
               </h2>
               <p className="mt-4 text-base leading-relaxed text-brand-charcoal-light/80">
                 Empresas panameñas de aduanas, salud, industria marina, eventos,
-                derecho y arquitectura confían en nosotros. Pasa el cursor sobre
+                mantenimiento de elevadores, derecho y arquitectura confían en
+                nosotros. Pasa el cursor sobre
                 cada diseño para recorrerlo y haz clic para visitar el sitio.
               </p>
             </div>
