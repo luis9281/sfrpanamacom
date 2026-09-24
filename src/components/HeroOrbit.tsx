@@ -1,12 +1,33 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
-import { BrainCircuit, Cloud, Code2, Server, ShieldCheck } from "lucide-react";
+import { Code2, Server, type LucideIcon } from "lucide-react";
 
-const items = [
-  { icon: Cloud, label: "Cloud AWS", caption: "EC2 · S3 · Alta disponibilidad" },
-  { icon: ShieldCheck, label: "Ciberseguridad", caption: "Firewalls · Antivirus" },
-  { icon: BrainCircuit, label: "Inteligencia Artificial", caption: "Chatbots · Automatización" },
+type OrbitItem = {
+  label: string;
+  caption: string;
+} & (
+  | { logo: { src: string; width: number; height: number }; icon?: never }
+  | { icon: LucideIcon; logo?: never }
+);
+
+const items: OrbitItem[] = [
+  {
+    logo: { src: "/images/tech/aws.webp", width: 214, height: 128 },
+    label: "Cloud AWS",
+    caption: "EC2 · S3 · Alta disponibilidad",
+  },
+  {
+    logo: { src: "/images/tech/ciberseguridad.webp", width: 128, height: 128 },
+    label: "Ciberseguridad",
+    caption: "Firewalls · Antivirus",
+  },
+  {
+    logo: { src: "/images/tech/ia.webp", width: 110, height: 128 },
+    label: "Inteligencia Artificial",
+    caption: "Chatbots · Automatización",
+  },
   { icon: Code2, label: "Desarrollo Web", caption: "Sitios · Ecommerce · SEO" },
   { icon: Server, label: "Hosting", caption: "Dominios · Correo · cPanel" },
 ];
@@ -186,7 +207,7 @@ export default function HeroOrbit() {
 
         {/* Tarjetas en órbita */}
         <ul aria-label="Especialidades">
-          {items.map(({ icon: Icon, label, caption }, i) => (
+          {items.map(({ icon: Icon, logo, label, caption }, i) => (
             <li
               key={label}
               ref={(el) => {
@@ -194,9 +215,23 @@ export default function HeroOrbit() {
               }}
               className="absolute left-1/2 top-1/2 flex cursor-default items-center gap-3 whitespace-nowrap rounded-2xl border border-white/60 bg-white/95 py-2.5 pl-2.5 pr-4 shadow-[0_18px_40px_-12px_rgba(0,0,0,0.55)] will-change-transform"
             >
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand-green to-brand-green-dark text-white shadow-inner">
-                <Icon size={20} strokeWidth={2.2} />
-              </span>
+              {logo ? (
+                <span className="flex h-12 w-14 items-center justify-center rounded-xl bg-white">
+                  <Image
+                    src={logo.src}
+                    alt=""
+                    width={logo.width}
+                    height={logo.height}
+                    className="h-auto max-h-11 w-auto max-w-13"
+                  />
+                </span>
+              ) : (
+                <span className="flex h-12 w-14 items-center justify-center">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-brand-green to-brand-green-dark text-white shadow-inner">
+                    <Icon size={22} strokeWidth={2.2} />
+                  </span>
+                </span>
+              )}
               <span className="flex flex-col">
                 <span className="text-sm font-bold leading-tight text-brand-charcoal">
                   {label}
