@@ -14,7 +14,7 @@ export const portfolio = [
   {
     slug: "sige-pa",
     name: "SIGE ERP",
-    url: "https://erp.sige-pa.com/principal/",
+    url: "https://www.sige-pa.com/",
     domain: "sige-pa.com",
     industry: "Software empresarial",
     description: "Ecosistema ERP con ventas, inventario, contabilidad, planilla, CRM y facturación electrónica.",
