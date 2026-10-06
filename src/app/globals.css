@@ -166,20 +166,6 @@ html.js [data-reveal-stagger] > :not(.is-visible) {
 [data-reveal="right"].is-visible { animation-name: reveal-right; }
 [data-reveal="zoom"].is-visible { animation-name: reveal-zoom; }
 
-/* Franja de servicios desplazándose */
-@keyframes marquee {
-  from { transform: translate3d(0, 0, 0); }
-  to { transform: translate3d(-50%, 0, 0); }
-}
-
-.marquee-track {
-  animation: marquee 40s linear infinite;
-}
-
-.marquee:hover .marquee-track {
-  animation-play-state: paused;
-}
-
 /* Fondos animados */
 @keyframes grid-drift {
   from { background-position: 0 0; }
@@ -214,7 +200,6 @@ html.js [data-reveal-stagger] > :not(.is-visible) {
   }
 
   [data-reveal].is-visible,
-  .marquee-track,
   .animate-grid-drift,
   .animate-spin-slow,
   .animate-spin-slower {

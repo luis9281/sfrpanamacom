@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Stats from "@/components/Stats";
-import Marquee from "@/components/Marquee";
 import Services from "@/components/Services";
 import AISolutions from "@/components/AISolutions";
 import WhyUs from "@/components/WhyUs";
@@ -18,7 +17,7 @@ export default function Home() {
       <main>
         <Hero />
         <Stats />
-        <Marquee />
+        <div aria-hidden="true" className="h-[2px] bg-brand-green" />
         <Services />
         <AISolutions />
         <WhyUs />
