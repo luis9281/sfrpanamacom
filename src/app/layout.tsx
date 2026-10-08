@@ -42,9 +42,6 @@ export const metadata: Metadata = {
   creator: site.legalName,
   publisher: site.legalName,
   category: "technology",
-  alternates: {
-    canonical: "/",
-  },
   robots: {
     index: true,
     follow: true,

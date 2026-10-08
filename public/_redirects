@@ -1,0 +1,29 @@
+# URLs del sitio anterior (WordPress) -> páginas actuales.
+# Blog, etiquetas, categorías y autor se dejan en 404 a propósito:
+# ese contenido ya no existe y Google los retira solo.
+/portafolio /diseno-paginas-web#portafolio 301
+/portafolio/ /diseno-paginas-web#portafolio 301
+/portafolio/* /diseno-paginas-web#portafolio 301
+/contacto /#contacto 301
+/contacto/ /#contacto 301
+/formulario-de-cotizacion /#contacto 301
+/formulario-de-cotizacion/ /#contacto 301
+/nosotros /#nosotros 301
+/nosotros/ /#nosotros 301
+/faq /#preguntas 301
+/faq/ /#preguntas 301
+/hosting-precios /diseno-paginas-web 301
+/hosting-precios/ /diseno-paginas-web 301
+/servicios/diseno-de-paginas-web-en-panama /diseno-paginas-web 301
+/servicios/diseno-de-paginas-web-en-panama/ /diseno-paginas-web 301
+/servicios/soporte-tecnico-outsourcing /soporte-remoto-panama 301
+/servicios/soporte-tecnico-outsourcing/ /soporte-remoto-panama 301
+/servicios/coordinador-de-infraestructura-y-soporte /soporte-remoto-panama 301
+/servicios/coordinador-de-infraestructura-y-soporte/ /soporte-remoto-panama 301
+/servicios /#servicios 301
+/servicios/ /#servicios 301
+/carro-de-compras / 301
+/carro-de-compras/ / 301
+/feed / 301
+/feed/ / 301
+/comments/feed/ / 301
