@@ -4,8 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { ChevronDown, Menu, X, MessageCircle } from "lucide-react";
-import { navLinks, site, whatsappLink } from "@/lib/site";
+import { ChevronDown, Menu, X, Send } from "lucide-react";
+import { navLinks, site } from "@/lib/site";
+import { contactPath } from "@/lib/contact";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -94,15 +95,13 @@ export default function Header() {
         </nav>
 
         <div className="hidden lg:block">
-          <a
-            href={whatsappLink("Hola, quiero solicitar una cotización de servicios TI.")}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href={contactPath}
             className="inline-flex items-center gap-2 rounded-full bg-brand-green px-5 py-2.5 text-sm font-bold text-brand-ink shadow-sm transition-transform hover:scale-105 hover:bg-brand-green-dark hover:text-white"
           >
-            <MessageCircle size={18} />
+            <Send size={17} />
             Solicitar cotización
-          </a>
+          </Link>
         </div>
 
         <button
@@ -147,15 +146,14 @@ export default function Header() {
               </div>
             ))}
           </nav>
-          <a
-            href={whatsappLink("Hola, quiero solicitar una cotización de servicios TI.")}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href={contactPath}
+            onClick={() => setOpen(false)}
             className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-green px-5 py-3 text-sm font-bold text-brand-ink"
           >
-            <MessageCircle size={18} />
+            <Send size={17} />
             Solicitar cotización
-          </a>
+          </Link>
         </div>
       )}
     </header>

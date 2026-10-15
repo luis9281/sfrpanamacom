@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { remoteSupportPath, site, webDesignPath } from "@/lib/site";
 import { portfolio } from "@/lib/portfolio";
+import { contactPath } from "@/lib/contact";
 
 export const dynamic = "force-static";
 
@@ -28,6 +29,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: ["mesa-de-ayuda", "tecnico-monitores", "diagnostico-laptop", "tecnico-servidores"].map(
         (name) => `${site.url}/images/soporte-remoto/${name}.webp`,
       ),
+    },
+    {
+      url: `${site.url}${contactPath}`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.7,
     },
   ];
 }

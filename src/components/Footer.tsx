@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { contactPath } from "@/lib/contact";
 import { navLinks, remoteSupportPath, site, webDesignPath } from "@/lib/site";
 
 const serviceLinks = [
@@ -73,6 +74,15 @@ export default function Footer() {
               Contacto
             </h3>
             <ul className="mt-5 space-y-4">
+              <li>
+                <Link
+                  href={contactPath}
+                  className="flex items-start gap-3 text-sm font-semibold text-white/80 transition-colors hover:text-brand-green"
+                >
+                  <Send size={18} className="mt-0.5 shrink-0" />
+                  Formulario de contacto
+                </Link>
+              </li>
               <li>
                 <a
                   href={site.phoneHref}

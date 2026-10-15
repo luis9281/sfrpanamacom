@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import type { CSSProperties } from "react";
 import { whatsappLink } from "@/lib/site";
+import { contactPath } from "@/lib/contact";
 
 export const solutions = [
   {
@@ -115,7 +116,7 @@ export default function AISolutions() {
           ))}
         </div>
 
-        <div data-reveal="up" className="mt-14 flex justify-center">
+        <div data-reveal="up" className="mt-14 flex flex-wrap justify-center gap-4">
           <a
             href={whatsappLink("Hola, quiero conocer más sobre las soluciones de IA para mi empresa.")}
             target="_blank"
@@ -124,6 +125,12 @@ export default function AISolutions() {
           >
             <MessageCircle size={18} />
             Quiero implementar IA en mi empresa
+          </a>
+          <a
+            href={`${contactPath}?tipo=consulta`}
+            className="inline-flex items-center gap-2 rounded-full border border-white/20 px-7 py-3.5 text-sm font-bold text-white transition-colors hover:border-brand-green hover:text-brand-green"
+          >
+            Hacer una consulta
           </a>
         </div>
       </div>

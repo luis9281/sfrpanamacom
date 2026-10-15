@@ -1,5 +1,7 @@
-import { MessageCircle, Phone } from "lucide-react";
+import Link from "next/link";
+import { MessageCircle, Phone, Send } from "lucide-react";
 import { site, whatsappLink } from "@/lib/site";
+import { contactPath } from "@/lib/contact";
 
 export default function CTA() {
   return (
@@ -25,6 +27,13 @@ export default function CTA() {
             <MessageCircle size={18} />
             Escríbenos por WhatsApp
           </a>
+          <Link
+            href={contactPath}
+            className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-bold text-brand-ink shadow-lg transition-transform hover:scale-105"
+          >
+            <Send size={18} />
+            Enviar una solicitud
+          </Link>
           <a
             href={site.phoneHref}
             className="inline-flex items-center gap-2 rounded-full border-2 border-brand-ink px-7 py-3.5 text-sm font-bold text-brand-ink transition-colors hover:bg-brand-ink hover:text-white"

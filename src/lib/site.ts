@@ -39,5 +39,5 @@ export const navLinks: NavLink[] = [
   { label: "Soluciones IA", href: "/#ia" },
   { label: "Nosotros", href: "/#nosotros" },
   { label: "Preguntas", href: "/#preguntas" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Contacto", href: "/contacto" },
 ];

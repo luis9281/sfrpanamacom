@@ -13,6 +13,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { remoteSupportPath, webDesignPath } from "@/lib/site";
+import { contactPath, slugify } from "@/lib/contact";
 
 export const services = [
   {
@@ -129,15 +130,24 @@ export default function Services() {
               <p className="mt-2 text-sm leading-relaxed text-brand-charcoal-light/80">
                 {service.description}
               </p>
-              {"href" in service && (
+              <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2">
                 <a
-                  href={service.href}
-                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-brand-green-dark hover:gap-2.5 transition-all"
+                  href={`${contactPath}?servicio=${slugify(service.title)}`}
+                  className="inline-flex items-center gap-1.5 text-sm font-bold text-brand-green-dark hover:gap-2.5 transition-all"
                 >
-                  {service.cta}
+                  Cotizar
                   <ArrowRight size={16} />
                 </a>
-              )}
+                {"href" in service && (
+                  <a
+                    href={service.href}
+                    className="inline-flex items-center gap-1.5 text-sm font-bold text-brand-charcoal hover:gap-2.5 hover:text-brand-green-dark transition-all"
+                  >
+                    {service.cta}
+                    <ArrowRight size={16} />
+                  </a>
+                )}
+              </div>
             </div>
           ))}
         </div>
