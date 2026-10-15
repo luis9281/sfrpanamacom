@@ -168,7 +168,7 @@ async function handleContact(request: Request, env: Env) {
       "idempotency-key": id,
     },
     body: JSON.stringify({
-      from: env.CONTACT_FROM || "Formulario web SFR Panamá <formulario@sfrpanama.com>",
+      from: env.CONTACT_FROM || "Formulario web SFR Panamá <ventas@sfrpanama.com>",
       to: [env.CONTACT_TO || "ventas@sfrpanama.com"],
       reply_to: data.email,
       subject: email.subject,
