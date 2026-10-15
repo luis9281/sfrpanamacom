@@ -1,0 +1,16 @@
+# Cabeceras de Cloudflare para los archivos estáticos.
+# HSTS sin includeSubDomains: los subdominios del correo (HostGator) no dependen de este sitio.
+/*
+  Strict-Transport-Security: max-age=31536000
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+
+# JS/CSS/fuentes de Next llevan hash en el nombre: se pueden guardar un año.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Imágenes sin hash: una semana en el navegador.
+/images/*
+  Cache-Control: public, max-age=604800

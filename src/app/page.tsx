@@ -10,6 +10,7 @@ import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import ScrollEffects from "@/components/ScrollEffects";
+import { FaqJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -32,6 +33,7 @@ export default function Home() {
       <Footer />
       <WhatsAppFloat />
       <ScrollEffects />
+      <FaqJsonLd />
     </>
   );
 }

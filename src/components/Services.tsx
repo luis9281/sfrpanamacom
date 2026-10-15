@@ -121,7 +121,7 @@ export default function Services() {
               key={service.title}
               className="group rounded-2xl border border-black/5 bg-white p-7 shadow-sm transition-all hover:-translate-y-1 hover:border-brand-green/30 hover:shadow-xl"
             >
-              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-green-light text-brand-green-dark transition-colors group-hover:bg-brand-green group-hover:text-white">
+              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-green-light text-brand-green-dark transition-colors group-hover:bg-brand-green group-hover:text-brand-ink">
                 <service.icon size={22} />
               </span>
               <h3 className="font-heading mt-5 text-lg font-bold text-brand-ink">

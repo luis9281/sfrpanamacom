@@ -88,7 +88,7 @@ const fallbackMessage =
   "No pudimos enviar tu solicitud en este momento. Inténtalo de nuevo o escríbenos por WhatsApp y te atendemos enseguida.";
 
 const inputClass = (invalid: boolean) =>
-  `block w-full rounded-xl border bg-white px-4 py-3 text-[15px] text-brand-ink shadow-sm outline-none transition placeholder:text-brand-charcoal-light/45 focus:ring-4 ${
+  `block w-full rounded-xl border bg-white px-4 py-3 text-[15px] text-brand-ink shadow-sm outline-none transition placeholder:text-brand-charcoal-light/65 focus:ring-4 ${
     invalid
       ? "border-red-500 focus:border-red-500 focus:ring-red-100"
       : "border-black/10 hover:border-black/20 focus:border-brand-green-dark focus:ring-brand-green/20"
@@ -117,7 +117,7 @@ function Field({
       <div className="mb-1.5 flex items-baseline justify-between gap-3">
         <label htmlFor={id} className="text-sm font-bold text-brand-ink">
           {label}
-          {optional && <span className="ml-1.5 font-medium text-brand-charcoal-light/60">(opcional)</span>}
+          {optional && <span className="ml-1.5 font-medium text-brand-charcoal-light/75">(opcional)</span>}
         </label>
         {hint}
       </div>
@@ -358,7 +358,7 @@ export default function ContactForm({ services }: { services: ServiceGroup[] }) 
             onChange={(e) => set("service", e.target.value)}
             aria-invalid={!!errors.service}
             aria-describedby={described("service")}
-            className={`${inputClass(!!errors.service)} appearance-none bg-[url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%235a9c2c' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")] bg-[length:20px] bg-[right_14px_center] bg-no-repeat pr-11 ${values.service ? "" : "text-brand-charcoal-light/60"}`}
+            className={`${inputClass(!!errors.service)} appearance-none bg-[url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%235a9c2c' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")] bg-[length:20px] bg-[right_14px_center] bg-no-repeat pr-11 ${values.service ? "" : "text-brand-charcoal-light/75"}`}
           >
             <option value="" disabled>
               Elige un servicio
@@ -422,7 +422,7 @@ export default function ContactForm({ services }: { services: ServiceGroup[] }) 
           label="Descripción breve"
           error={errors.message}
           hint={
-            <span className={`text-xs tabular-nums ${values.message.length > limits.message - 50 ? "font-bold text-amber-700" : "text-brand-charcoal-light/55"}`}>
+            <span className={`text-xs tabular-nums ${values.message.length > limits.message - 50 ? "font-bold text-amber-700" : "text-brand-charcoal-light/75"}`}>
               {values.message.length}/{limits.message}
             </span>
           }
@@ -506,7 +506,7 @@ export default function ContactForm({ services }: { services: ServiceGroup[] }) 
               id="cf-size"
               value={values.size}
               onChange={(e) => set("size", e.target.value)}
-              className={`${inputClass(!!errors.size)} appearance-none bg-[url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%235a9c2c' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")] bg-[length:20px] bg-[right_14px_center] bg-no-repeat pr-11 ${values.size ? "" : "text-brand-charcoal-light/60"}`}
+              className={`${inputClass(!!errors.size)} appearance-none bg-[url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%235a9c2c' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")] bg-[length:20px] bg-[right_14px_center] bg-no-repeat pr-11 ${values.size ? "" : "text-brand-charcoal-light/75"}`}
             >
               <option value="">Selecciona un rango</option>
               {companySizes.map((option) => (

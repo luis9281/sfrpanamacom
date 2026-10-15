@@ -110,11 +110,11 @@ export default function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
-          <p className="text-xs text-white/40">
+          <p className="text-xs text-white/60">
             © {new Date().getFullYear()} {site.legalName}. Todos los derechos
             reservados.
           </p>
-          <p className="text-xs text-white/40">
+          <p className="text-xs text-white/60">
             Panamá, República de Panamá
           </p>
         </div>

@@ -23,6 +23,13 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (event: KeyboardEvent) => event.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
   return (
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
@@ -43,7 +50,7 @@ export default function Header() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-6 lg:flex xl:gap-8">
+        <nav aria-label="Menú principal" className="hidden items-center gap-6 lg:flex xl:gap-8">
           {navLinks.map((link) =>
             link.children ? (
               <div key={link.href} className="group relative">
@@ -106,17 +113,19 @@ export default function Header() {
 
         <button
           type="button"
-          aria-label="Abrir menú"
+          aria-label={open ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={open}
+          aria-controls="menu-movil"
           onClick={() => setOpen((v) => !v)}
-          className="flex items-center justify-center rounded-lg p-2 text-brand-charcoal lg:hidden"
+          className="flex items-center justify-center rounded-lg p-2.5 text-brand-charcoal lg:hidden"
         >
           {open ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
 
       {open && (
-        <div className="border-t border-black/5 bg-white px-5 pb-6 pt-2 lg:hidden">
-          <nav className="flex flex-col gap-1">
+        <div id="menu-movil" className="border-t border-black/5 bg-white px-5 pb-6 pt-2 lg:hidden">
+          <nav aria-label="Menú principal" className="flex flex-col gap-1">
             {navLinks.map((link) => (
               <div key={link.href}>
                 <Link

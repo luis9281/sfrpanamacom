@@ -71,24 +71,38 @@ const jsonLd = {
       inLanguage: "es-PA",
       publisher: { "@id": organizationId },
     },
-    {
-      "@type": "FAQPage",
-      "@id": `${site.url}/#faq`,
-      mainEntity: faqs.map((faq) => ({
-        "@type": "Question",
-        name: faq.question,
-        acceptedAnswer: { "@type": "Answer", text: faq.answer },
-      })),
-    },
   ],
 };
+
+// Solo en la portada: Google exige que las preguntas estén visibles en la misma página.
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": `${site.url}/#faq`,
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
+
+export function FaqJsonLd() {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(faqJsonLd).replace(/</g, "\\u003c"),
+      }}
+    />
+  );
+}
 
 export default function JsonLd() {
   return (
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(jsonLd).replace(/</g, "\u003c"),
+        __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
       }}
     />
   );

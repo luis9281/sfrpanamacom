@@ -237,7 +237,7 @@ export default function HeroOrbit() {
                 <span className="text-sm font-bold leading-tight text-brand-charcoal">
                   {label}
                 </span>
-                <span className="text-[11px] font-medium leading-tight text-brand-charcoal-light/60">
+                <span className="text-[11px] font-medium leading-tight text-brand-charcoal-light/75">
                   {caption}
                 </span>
               </span>
