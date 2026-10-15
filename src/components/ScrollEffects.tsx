@@ -60,7 +60,10 @@ export default function ScrollEffects() {
 
     if (reduceMotion) return () => revealObserver.disconnect();
 
-    const parallaxEls = Array.from(document.querySelectorAll<HTMLElement>("[data-parallax]"));
+    // En pantallas chicas no hay parallax: mover manchas con blur en cada scroll pesa mucho en celulares.
+    const parallaxEls = window.matchMedia("(min-width: 1024px)").matches
+      ? Array.from(document.querySelectorAll<HTMLElement>("[data-parallax]"))
+      : [];
     const inView = new Set<HTMLElement>();
     const parallaxObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {

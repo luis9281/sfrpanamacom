@@ -100,7 +100,7 @@ export default function AISolutions() {
           {solutions.map((solution) => (
             <div
               key={solution.title}
-              className="rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur transition-colors hover:border-brand-green/40 hover:bg-white/10"
+              className="rounded-2xl border border-white/10 bg-white/5 p-7 transition-colors lg:backdrop-blur hover:border-brand-green/40 hover:bg-white/10"
             >
               <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-green/15 text-brand-green">
                 <solution.icon size={22} />

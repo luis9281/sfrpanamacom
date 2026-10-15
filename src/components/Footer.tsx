@@ -20,10 +20,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <Image
-              src="/images/logo.png"
+              src="/images/logo-header.webp"
               alt={site.legalName}
-              width={140}
-              height={100}
+              width={232}
+              height={160}
               className="h-14 w-auto"
             />
             <p className="mt-5 text-sm leading-relaxed text-white/60">

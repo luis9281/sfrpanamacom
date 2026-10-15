@@ -36,9 +36,11 @@ export default function Analytics() {
 
   return (
     <>
+      {/* La cola (dataLayer) existe desde el inicio, así no se pierden clics;
+          la librería de Google (~176 KB) baja cuando el navegador queda libre. */}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${site.gaId}`}
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
       <Script id="google-tag" strategy="afterInteractive">
         {`window.dataLayer = window.dataLayer || [];

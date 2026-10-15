@@ -44,7 +44,8 @@ export default function HeroOrbit() {
 
   useEffect(() => {
     const stage = stageRef.current;
-    if (!stage) return;
+    // La órbita solo se muestra en escritorio (lg); en celulares no arranca el loop.
+    if (!stage || !window.matchMedia("(min-width: 1024px)").matches) return;
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let angle = -Math.PI / 2;

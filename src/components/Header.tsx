@@ -26,17 +26,17 @@ export default function Header() {
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 backdrop-blur shadow-sm"
-          : "bg-white/80 backdrop-blur"
+          ? "bg-white/95 shadow-sm lg:backdrop-blur"
+          : "bg-white/95 lg:bg-white/80 lg:backdrop-blur"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 lg:px-8">
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/images/logo.png"
+            src="/images/logo-header.webp"
             alt={site.legalName}
-            width={140}
-            height={100}
+            width={232}
+            height={160}
             className="h-12 w-auto"
             priority
           />

@@ -83,10 +83,10 @@ export default function WhyUs() {
             </div>
             <div className="relative overflow-hidden rounded-3xl border border-black/5 bg-white p-10 shadow-xl">
               <Image
-                src="/images/logo-full.jpg"
+                src="/images/logo-full.webp"
                 alt="System FR Panamá"
-                width={640}
-                height={533}
+                width={768}
+                height={685}
                 className="mx-auto h-auto w-full max-w-sm"
               />
             </div>

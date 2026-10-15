@@ -9,7 +9,7 @@ const cubes = [
 
 export default function HeroCubes() {
   return (
-    <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0 hidden overflow-hidden lg:block">
       {cubes.map((cube) => (
         <div
           key={cube.className}

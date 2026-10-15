@@ -167,9 +167,10 @@ html.js [data-reveal-stagger] > :not(.is-visible) {
 [data-reveal="zoom"].is-visible { animation-name: reveal-zoom; }
 
 /* Fondos animados */
+/* Se mueve con transform (no repinta); el elemento sobresale 44px por lado */
 @keyframes grid-drift {
-  from { background-position: 0 0; }
-  to { background-position: 44px 44px; }
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(44px, 44px, 0); }
 }
 
 .animate-grid-drift {
