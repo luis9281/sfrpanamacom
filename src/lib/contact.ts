@@ -4,9 +4,9 @@
 export const contactPath = "/contacto";
 export const contactEndpoint = "/api/contacto";
 
-// Clave pública de Cloudflare Turnstile. La de prueba (1x000…AA) siempre pasa;
-// en producción la secreta real no la acepta, así que el envío falla cerrado hasta poner la real.
-export const turnstileSiteKey = "1x00000000000000000000AA";
+// Clave pública de Cloudflare Turnstile (widget "sfrpanama.com"). La secreta va como
+// TURNSTILE_SECRET_KEY en el Worker. Para probar en local: 1x00000000000000000000AA.
+export const turnstileSiteKey = "0x4AAAAAAFXwOsEfwmQsR5uk";
 
 export const requestTypes = [
   { value: "cotizacion", label: "Cotización" },
