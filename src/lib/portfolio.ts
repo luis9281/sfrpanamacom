@@ -87,8 +87,8 @@ export const portfolio = [
     url: "https://www.solisimportsa.com",
     domain: "solisimportsa.com",
     industry: "Insumos médicos",
-    description: "Catálogo de equipos e insumos médico-quirúrgicos con líneas de producto por marca.",
-    accent: "#2b8fd6",
+    description: "Distribuidor de 19 marcas internacionales: catálogo de equipos e insumos médico-quirúrgicos por marca.",
+    accent: "#0f5fa8",
     height: 1800,
   },
   {
