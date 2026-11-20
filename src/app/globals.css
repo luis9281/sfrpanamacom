@@ -132,6 +132,30 @@ body {
   }
 }
 
+/* Hero: carrusel. El texto entra y la foto hace un zoom lento al activarse el slide */
+.hero-slide-active .hero-anim {
+  animation: fade-up 0.7s ease both;
+}
+
+.hero-photo {
+  transform: scale(1.06);
+  transition: transform 8s ease-out;
+}
+
+.hero-slide-active .hero-photo {
+  transform: scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide-active .hero-anim {
+    animation: none;
+  }
+  .hero-photo {
+    transform: none;
+    transition: none;
+  }
+}
+
 /* Entradas al hacer scroll (solo con JS activo; ver ScrollEffects) */
 @keyframes reveal-up {
   from { opacity: 0; transform: translate3d(0, 48px, 0); }
