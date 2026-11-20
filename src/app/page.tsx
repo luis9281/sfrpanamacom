@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import QuickAccess from "@/components/QuickAccess";
 import Stats from "@/components/Stats";
 import Services from "@/components/Services";
 import AISolutions from "@/components/AISolutions";
@@ -22,6 +23,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <QuickAccess />
         <Stats />
         <div aria-hidden="true" className="h-[2px] bg-brand-green" />
         <Services />

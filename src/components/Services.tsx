@@ -4,15 +4,13 @@ import {
   ShieldCheck,
   Cloud,
   LayoutTemplate,
-  Megaphone,
   Server,
-  ShoppingCart,
   Network,
   Wrench,
   Laptop,
   ArrowRight,
 } from "lucide-react";
-import { remoteSupportPath, webDesignPath } from "@/lib/site";
+import { consultingPath, remoteSupportPath, webDesignPath } from "@/lib/site";
 import { contactPath, slugify } from "@/lib/contact";
 
 export const services = [
@@ -21,6 +19,8 @@ export const services = [
     title: "Consultoría de Sistemas",
     description:
       "Análisis estratégico de tu infraestructura TI y un plan tecnológico claro para tomar mejores decisiones y crecer.",
+    href: consultingPath,
+    cta: "Ver más",
   },
   {
     icon: Code2,
@@ -49,22 +49,10 @@ export const services = [
     cta: "Ver portafolio",
   },
   {
-    icon: Megaphone,
-    title: "Mercadeo Digital",
-    description:
-      "SEO, email marketing, Facebook, Instagram y Google Ads para hacer crecer tu marca.",
-  },
-  {
     icon: Server,
     title: "Hosting y Servidores",
     description:
       "Dominios, hosting, correo, cPanel y administración de bases de datos.",
-  },
-  {
-    icon: ShoppingCart,
-    title: "Venta de Equipos",
-    description:
-      "Equipos de cómputo, comunicaciones, servidores, accesorios y licencias.",
   },
   {
     icon: Network,

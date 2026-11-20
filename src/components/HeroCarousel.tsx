@@ -65,7 +65,7 @@ export default function HeroCarousel({ labels, children }: { labels: string[]; c
         touchX.current = null;
       }}
     >
-      <div className="grid" aria-live={playing && !held ? "off" : "polite"}>
+      <div className="grid xl:h-[clamp(32rem,calc(100svh-10rem),50rem)]" aria-live={playing && !held ? "off" : "polite"}>
         {slides.map((slide, i) => (
           <div
             key={i}

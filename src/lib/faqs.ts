@@ -2,7 +2,7 @@ export const faqs = [
   {
     question: "¿Qué servicios de TI ofrece SFR Panamá?",
     answer:
-      "Ofrecemos consultoría de sistemas, soporte técnico outsourcing (redes, hardware y software), servicios cloud en AWS, seguridad informática, diseño y desarrollo web, desarrollo de aplicaciones, hosting y correo corporativo, mercadeo digital, venta de equipos y licencias, y soluciones de inteligencia artificial para empresas en Panamá.",
+      "Ofrecemos consultoría de sistemas, soporte técnico outsourcing (redes, hardware y software), servicios cloud en AWS, seguridad informática, diseño y desarrollo web, desarrollo de aplicaciones, hosting y correo corporativo, y soluciones de inteligencia artificial para empresas en Panamá.",
   },
   {
     question: "¿Tienen soporte técnico 24/7 para empresas en Panamá?",

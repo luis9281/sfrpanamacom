@@ -19,6 +19,7 @@ export const whatsappLink = (message: string) =>
 
 export const webDesignPath = "/diseno-paginas-web";
 export const remoteSupportPath = "/soporte-remoto-panama";
+export const consultingPath = "/consultoria-de-sistemas";
 
 type NavLink = {
   label: string;
@@ -32,6 +33,7 @@ export const navLinks: NavLink[] = [
     label: "Servicios",
     href: "/#servicios",
     children: [
+      { label: "Consultoría de Sistemas", href: consultingPath },
       { label: "Diseño Web", href: webDesignPath },
       { label: "Soporte Técnico", href: remoteSupportPath },
     ],

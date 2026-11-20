@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Pantallas bajas (laptops con zoom): el hero compacta su texto para que quepa con la franja de accesos */
+@custom-variant short (@media (max-height: 859px));
+
 :root {
   --background: #ffffff;
   --foreground: #1c1f1e;
@@ -153,6 +156,39 @@ body {
   .hero-photo {
     transform: none;
     transition: none;
+  }
+}
+
+/* Consultoría: autodiagnóstico y cambio de explicación sencilla/técnica */
+@keyframes quiz-in {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes quiz-result-in {
+  from { opacity: 0; clip-path: inset(0 0 100% 0); filter: blur(6px); }
+  to { opacity: 1; clip-path: inset(0); filter: none; }
+}
+
+@keyframes fade-swap {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+.quiz-enter { animation: quiz-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.quiz-result { animation: quiz-result-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.fade-swap { animation: fade-swap 0.35s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+/* Pasos desplegables (details/summary) */
+.step-item summary { list-style: none; }
+.step-item summary::-webkit-details-marker { display: none; }
+.step-item[open] .step-chevron { transform: rotate(180deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .quiz-enter,
+  .quiz-result,
+  .fade-swap {
+    animation: none;
   }
 }
 

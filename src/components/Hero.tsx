@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { ArrowRight, Check, FileText, Globe, Mail, MessageCircle, Server, type LucideIcon } from "lucide-react";
-import { webDesignPath, whatsappLink } from "@/lib/site";
+import { ArrowRight, Check, FileText, Globe, LifeBuoy, Mail, MessageCircle, Server, type LucideIcon } from "lucide-react";
+import { consultingPath, remoteSupportPath, webDesignPath, whatsappLink } from "@/lib/site";
 import { contactPath } from "@/lib/contact";
 import HeroCubes from "@/components/HeroCubes";
 import HeroOrbit from "@/components/HeroOrbit";
@@ -14,6 +14,8 @@ type Action = {
   whatsapp: string;
   perks?: string[];
   more?: { label: string; href: string };
+  /** Urgencias: WhatsApp pasa a ser el botón principal con este texto */
+  urgentLabel?: string;
 };
 
 type PhotoSlide = Action & {
@@ -23,6 +25,8 @@ type PhotoSlide = Action & {
   text: string;
   chips?: { icon: LucideIcon; label: string }[];
   image: string;
+  /** Anchos disponibles de la foto: {image}-{ancho}.webp */
+  widths?: [small: number, large: number];
   alt: string;
 };
 
@@ -35,6 +39,20 @@ const mainAction: Action = {
 };
 
 const photoSlides: PhotoSlide[] = [
+  {
+    track: "hero-soporte-remoto",
+    label: "Soporte remoto",
+    eyebrow: "Soporte técnico remoto",
+    title: "¿Algo dejó de funcionar? Lo resolvemos ahora",
+    text: "Nos conectamos a tu equipo de forma segura y arreglamos fallas de Windows, correo, impresoras o virus en minutos, sin que salgas de tu oficina.",
+    image: "/images/hero/soporte-remoto",
+    widths: [800, 1200],
+    alt: "Diagnóstico remoto de una laptop conectada a varios monitores",
+    urgentLabel: "Necesito ayuda ahora",
+    whatsapp: "Hola SFR, necesito soporte remoto. El problema es: ",
+    cta: { label: "Cómo funciona", href: remoteSupportPath },
+    perks: ["Conexión segura", "Atención 24/7", "Empresas y hogares"],
+  },
   {
     track: "hero-paginas-web",
     label: "Páginas web",
@@ -58,7 +76,8 @@ const photoSlides: PhotoSlide[] = [
     alt: "Equipo de trabajo revisando reportes en laptops y tablets",
     cta: { label: "Agenda tu consulta gratis", href: `${contactPath}?tipo=consulta&servicio=consultoria-de-sistemas` },
     whatsapp: "Hola SFR, quiero una consulta de TI para mi empresa. Lo que necesito resolver es: ",
-    perks: ["Primera consulta gratis", "Soporte 24/7", "Seguridad informática"],
+    perks: ["Primera consulta gratis", "Soporte 24/7"],
+    more: { label: "¿Qué es la consultoría?", href: consultingPath },
   },
   {
     track: "hero-hosting",
@@ -83,24 +102,38 @@ const primaryBtn =
 const whatsappBtn =
   "inline-flex items-center gap-2 rounded-full border border-white/20 px-7 py-3.5 text-sm font-bold text-white transition-colors hover:border-brand-green hover:text-brand-green";
 
-function Actions({ track, cta, whatsapp, perks, more }: Action) {
+function Actions({ track, cta, whatsapp, perks, more, urgentLabel }: Action) {
+  const whatsappButton = (
+    <a
+      href={whatsappLink(whatsapp)}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={urgentLabel ? primaryBtn : whatsappBtn}
+    >
+      {urgentLabel ? <LifeBuoy size={18} /> : <MessageCircle size={18} />}
+      {urgentLabel ?? (
+        <span>
+          <span className="hidden sm:inline">Escríbenos por </span>WhatsApp
+        </span>
+      )}
+    </a>
+  );
+  const formButton = (
+    <Link href={cta.href} className={urgentLabel ? whatsappBtn : primaryBtn}>
+      {urgentLabel ? <ArrowRight size={18} /> : <FileText size={18} />}
+      {cta.label}
+    </Link>
+  );
+
   return (
     <div data-track={track}>
-      <div className="hero-anim mt-10 flex flex-wrap items-center gap-4">
-        <Link href={cta.href} className={primaryBtn}>
-          <FileText size={18} />
-          {cta.label}
-        </Link>
-        <a href={whatsappLink(whatsapp)} target="_blank" rel="noopener noreferrer" className={whatsappBtn}>
-          <MessageCircle size={18} />
-          <span>
-            <span className="hidden sm:inline">Escríbenos por </span>WhatsApp
-          </span>
-        </a>
+      <div className="hero-anim mt-10 flex flex-wrap items-center gap-4 lg:short:mt-7">
+        {urgentLabel ? whatsappButton : formButton}
+        {urgentLabel ? formButton : whatsappButton}
       </div>
 
       {(perks || more) && (
-        <div className="hero-anim mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
+        <div className="hero-anim mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm lg:short:mt-4">
           {perks?.map((perk) => (
             <span key={perk} className="inline-flex items-center gap-1.5 font-medium text-white/70">
               <Check size={16} className="text-brand-green" />
@@ -124,18 +157,18 @@ function Actions({ track, cta, whatsapp, perks, more }: Action) {
 
 function MainSlide() {
   return (
-    <div className="relative mx-auto grid h-full max-w-7xl gap-12 px-5 pt-20 pb-28 lg:grid-cols-2 lg:items-center lg:px-8 lg:pt-28 lg:pb-32">
+    <div className="relative mx-auto grid h-full max-w-7xl gap-12 px-5 pt-20 pb-28 lg:grid-cols-2 lg:items-center lg:px-8 lg:pt-12 lg:pb-24 xl:pt-8 xl:pb-20">
       <div>
         <span className="hero-anim inline-flex items-center gap-2 rounded-full border border-brand-green/40 bg-brand-green/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-brand-green">
           Más de 15 años impulsando empresas en Panamá
         </span>
 
-        <h1 className="font-heading mt-6 text-4xl font-bold leading-tight text-balance text-white sm:text-5xl lg:text-6xl">
+        <h1 className="font-heading mt-6 lg:short:mt-4 text-4xl font-bold leading-tight text-balance text-white sm:text-5xl lg:text-6xl lg:short:text-[2.75rem]">
           Soluciones TI en Panamá que tu{" "}
           <span className="text-brand-green">empresa merece</span>
         </h1>
 
-        <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
+        <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70 lg:short:mt-4 lg:short:text-base lg:short:leading-normal">
           Soporte técnico outsourcing, consultoría TI, cloud AWS,
           inteligencia artificial, desarrollo web y ciberseguridad para
           pequeñas y medianas empresas en Panamá. No vendemos servicios,
@@ -151,17 +184,18 @@ function MainSlide() {
 }
 
 function Photo({ slide }: { slide: PhotoSlide }) {
+  const [small, large] = slide.widths ?? [800, 1600];
   return (
     <div className="relative grid h-full lg:grid-cols-2">
       <div className="relative order-first aspect-[16/9] overflow-hidden sm:aspect-[2/1] lg:order-last lg:aspect-auto">
         {/* <img> con srcSet: el sitio es export estático sin optimizador de imágenes */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={`${slide.image}-1600.webp`}
-          srcSet={`${slide.image}-800.webp 800w, ${slide.image}-1600.webp 1600w`}
+          src={`${slide.image}-${large}.webp`}
+          srcSet={`${slide.image}-${small}.webp ${small}w, ${slide.image}-${large}.webp ${large}w`}
           sizes="(min-width: 1024px) 50vw, 100vw"
-          width={1600}
-          height={1200}
+          width={large}
+          height={Math.round(large * 0.75)}
           alt={slide.alt}
           loading="lazy"
           decoding="async"
@@ -172,17 +206,17 @@ function Photo({ slide }: { slide: PhotoSlide }) {
       </div>
 
       {/* En escritorio el texto se alinea con el contenedor de 80rem del resto del sitio */}
-      <div className="flex items-center px-5 pt-6 pb-28 sm:pt-10 lg:py-28 lg:pr-12 lg:pb-32 lg:pl-[max(2rem,calc((100vw-80rem)/2+2rem))]">
+      <div className="flex items-center px-5 pt-6 pb-28 sm:pt-10 lg:pt-12 lg:pr-12 lg:pb-24 xl:pt-8 xl:pb-20 lg:pl-[max(2rem,calc((100vw-80rem)/2+2rem))]">
         <div className="w-full max-w-xl">
           <p className="hero-anim text-xs font-bold uppercase tracking-[0.2em] text-brand-green">
             {slide.eyebrow}
           </p>
-          <h2 className="font-heading mt-5 text-4xl font-bold leading-tight text-balance text-white sm:text-5xl lg:text-6xl">
+          <h2 className="font-heading mt-5 text-4xl font-bold leading-tight text-balance text-white sm:text-5xl lg:text-6xl lg:short:text-[2.75rem]">
             {slide.title}
           </h2>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70">{slide.text}</p>
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70 lg:short:mt-4 lg:short:text-base lg:short:leading-normal">{slide.text}</p>
           {slide.chips && (
-            <ul className="mt-6 flex flex-wrap gap-3">
+            <ul className="mt-6 flex flex-wrap gap-3 lg:short:mt-4">
               {slide.chips.map(({ icon: Icon, label }) => (
                 <li
                   key={label}

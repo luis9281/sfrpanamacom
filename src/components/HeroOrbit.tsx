@@ -147,7 +147,7 @@ export default function HeroOrbit() {
   }, []);
 
   return (
-    <div className="relative mx-auto hidden aspect-square w-full max-w-lg items-center justify-center [perspective:1200px] lg:flex">
+    <div className="relative mx-auto hidden aspect-square w-full max-w-[min(32rem,calc(100svh-18rem))] items-center justify-center [perspective:1200px] lg:flex">
       <div ref={stageRef} className="relative h-full w-full will-change-transform">
         {/* Órbita */}
         <svg
